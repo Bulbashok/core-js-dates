@@ -105,15 +105,8 @@ function getNextFriday(date) {
  * 2, 2024 => 29
  */
 function getCountDaysInMonth(month, year) {
-  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  const leapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-
-  if (month === 2 && leapYear) {
-    return 29;
-  }
-  return daysInMonth[month - 1];
+  return new Date(year, month, 0).getDate();
 }
-
 /**
  * Returns the total number of days between two dates, including both the start and end dates.
  *
